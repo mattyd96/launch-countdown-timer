@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Launch countdown timer</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+
+  <link rel="stylesheet" href="scss/style.css">
+</head>
+<body>
+
+  <main>
+    <!-- title -->
+    <h1 class="title">WE'RE LAUNCHING SOON</h1>
+    <!-- countdown cards -->
+    <div class="countdown">
+      <div class="column">
+        <!-- days -->
+        <div class="card days">
+          <div class="face top">
+            <h1 id="days-next-top">02</h1>
+            <div class="borders-top">
+              <div class="left point"></div>
+              <div class="right point"></div>
+            </div>
+          </div>
+          <div class="face flip front" id="days-front">
+            <h1 id="days-current-top">08</h1>
+            <div class="borders-top">
+              <div class="left point"></div>
+              <div class="right point"></div>
+            </div>
+          </div>
+          <div class="face flip behind" id="days-behind">
+            <h1 id="days-next-bottom">02</h1>
+            <div class="borders-bottom">
+              <div class="left point"></div>
+              <div class="right point"></div>
+            </div>
+          </div>
+          <div class="face bottom">
+            <h1 id="days-current-bottom">08</h1>
+            <div class="borders-bottom">
+              <div class="left point"></div>
+              <div class="right point"></div>
+            </div>
+          </div>
+        </div>
+        <h3>DAYS</h3>
+      </div>
+      <!-- hours -->
+      <div class="column">
+        <div class="card hours">
+          <div class="face top">
+            <h1 id="hours-next-top">02</h1>
+            <div class="borders-top">
+              <div class="left point"></div>
+              <div class="right point"></div>
+            </div>
+          </div>
+          <div class="face flip front" id="hours-front">
+            <h1 id="hours-current-top">08</h1>
+            <div class="borders-top">
+              <div class="left point"></div>
+              <div class="right point"></div>
+            </div>
+          </div>
+          <div class="face flip behind" id="hours-behind">
+            <h1 id="hours-next-bottom">02</h1>
+            <div class="borders-bottom">
+              <div class="left point"></div>
+              <div class="right point"></div>
+            </div>
+          </div>
+          <div class="face bottom">
+            <h1 id="hours-current-bottom">08</h1>
+            <div class="borders-bottom">
+              <div class="left point"></div>
+              <div class="right point"></div>
+            </div>
+          </div>
+        </div>
+        <h3>HOURS</h3>
+      </div>
+      <!-- minutes -->
+      <div class="column">
+        <div class="card minutes">
+          <div class="face top">
+            <h1 id="minutes-next-top">02</h1>
+            <div class="borders-top">
+              <div class="left point"></div>
+              <div class="right point"></div>
+            </div>
+          </div>
+          <div class="face flip front" id="minutes-front">
+            <h1 id="minutes-current-top">08</h1>
+            <div class="borders-top">
+              <div class="left point"></div>
+              <div class="right point"></div>
+            </div>
+          </div>
+          <div class="face flip behind" id="minutes-behind">
+            <h1 id="minutes-next-bottom">02</h1>
+            <div class="borders-bottom">
+              <div class="left point"></div>
+              <div class="right point"></div>
+            </div>
+          </div>
+          <div class="face bottom">
+            <h1 id="minutes-current-bottom">08</h1>
+            <div class="borders-bottom">
+              <div class="left point"></div>
+              <div class="right point"></div>
+            </div>
+          </div>
+        </div>
+        <h3>MINUTES</h3>
+      </div>
+      <!-- seconds -->
+      <div class="column">
+        <div class="card seconds">
+          <div class="face top">
+            <h1 id="seconds-next-top"></h1>
+            <div class="borders-top">
+              <div class="left point"></div>
+              <div class="right point"></div>
+            </div>
+          </div>
+          <div class="face flip front" id="seconds-front">
+            <h1 id="seconds-current-top"></h1>
+            <div class="borders-top">
+              <div class="left point"></div>
+              <div class="right point"></div>
+            </div>
+          </div>
+          <div class="face flip behind" id="seconds-behind">
+            <h1 id="seconds-next-bottom"></h1>
+            <div class="borders-bottom">
+              <div class="left point"></div>
+              <div class="right point"></div>
+            </div>
+          </div>
+          <div class="face bottom">
+            <h1 id="seconds-current-bottom"></h1>
+            <div class="borders-bottom">
+              <div class="left point"></div>
+              <div class="right point"></div>
+            </div>
+          </div>
+        </div>
+        <h3>SECONDS</h3>
+      </div>
+    </div>
+    <!-- social media navigation -->
+    <nav class="social">
+      <ul>
+        <li><img src="images/icon-facebook.svg" alt=""></li>
+        <li><img src="images/icon-pinterest.svg" alt=""></li>
+        <li><img src="images/icon-instagram.svg" alt=""></li>
+      </ul>
+    </nav>
+  </main>
+
+  <div class="bg">
+    <img src="images/bg-stars.svg" alt="stars" id="stars">
+    <img src="images/pattern-hills.svg" alt="hills" id="hills">
+  </div>
+  
+  <script src="script.js"></script>
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+</body>
+</html>
