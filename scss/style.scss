@@ -202,12 +202,12 @@ nav {
 //Rotation
 .flip-card-front {
     transform: translateY(100%) rotateX(-180deg) ;
-    transition-duration: .3s;
+    transition-duration: .5s;
 }
 
 .flip-card-behind {
     transform: translateY(100%) rotateX(360deg) ;
-    transition-duration: .3s;
+    transition-duration: .5s;
 }
 
 

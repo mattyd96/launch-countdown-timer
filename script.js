@@ -22,177 +22,150 @@ var now = new Date().getTime();
 var distance = countDownDate - now;
 
 // Time calculations for days, hours, minutes and seconds
-var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+var oldDays = Math.floor(distance / (1000 * 60 * 60 * 24));
+var oldHours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var oldMinutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var oldSeconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-if(hours == 0 && minutes == 0 && seconds == 0) {days -= 1}
-if(hours == 0) {hours = 23}
-if(minutes == 0) {minutes = 59}
-if(seconds == 0) {seconds = 59}
+if(oldHours == 0 && oldMinutes == 0 && oldSeconds == 0) {oldDays -= 1}
+if(oldHours == 0) {oldHours = 23}
+if(oldMinutes == 0) {oldMinutes = 59}
+if(oldSeconds == 0) {oldSeconds = 59}
 
-document.getElementById("seconds-current-top").innerText = seconds.toString();
-document.getElementById("seconds-current-bottom").innerText = seconds.toString();
-document.getElementById("minutes-current-top").innerText = minutes.toString();
-document.getElementById("minutes-current-bottom").innerText = minutes.toString();
-document.getElementById("hours-current-top").innerText = hours.toString();
-document.getElementById("hours-current-bottom").innerText = hours.toString();
-document.getElementById("days-current-top").innerText = days.toString();
-document.getElementById("days-current-bottom").innerText = days.toString();
+//document.getElementById("seconds-current-top").innerText = oldSeconds.toString();
+//document.getElementById("seconds-current-bottom").innerText = oldSeconds.toString();
+//document.getElementById("minutes-current-top").innerText = oldMinutes.toString();
+//document.getElementById("minutes-current-bottom").innerText = oldMinutes.toString();
+//document.getElementById("hours-current-top").innerText = oldHours.toString();
+//document.getElementById("hours-current-bottom").innerText = oldHours.toString();
+//document.getElementById("days-current-top").innerText = oldDays.toString();
+//document.getElementById("days-current-bottom").innerText = oldDays.toString();
 
 //------------------------------- Interval functions for seconds, minutes, hours, and days -----------------------//
 
-// Update the second count down every 1 second
-var secondInterval = setInterval(function() {
 
-    // Get today's date and time
-    var now = new Date().getTime();
+// Update the count down every 1 second
+var x = setInterval(function() {
 
-    // Find the distance between now and the count down date
-    var distance = countDownDate - now;
+  // Get today's date and time
+  var now = new Date().getTime();
 
-    // Time calculation for seconds
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
 
-    //reset flip 
+  //reset current card values
+  document.getElementById("seconds-current-top").innerText = ('0' + oldSeconds.toString()).slice(-2);
+  document.getElementById("seconds-current-bottom").innerText = ('0' + oldSeconds.toString()).slice(-2);
+
+  document.getElementById("minutes-current-top").innerText = ('0' + oldMinutes.toString()).slice(-2);
+  document.getElementById("minutes-current-bottom").innerText = ('0' + oldMinutes.toString()).slice(-2);
+
+  document.getElementById("hours-current-top").innerText = ('0' + oldHours.toString()).slice(-2);
+  document.getElementById("hours-current-bottom").innerText = ('0' + oldHours.toString()).slice(-2);
+
+  document.getElementById("days-current-top").innerText = ('0' + oldDays.toString()).slice(-2);
+  document.getElementById("days-current-bottom").innerText = ('0' + oldDays.toString()).slice(-2);
+
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  //reset flips -> show current cards again and return flip to top
+  if(seconds != oldSeconds) {
     secondsFront.classList.remove("flip-card-front");
     secondsBehind.classList.remove("flip-card-behind");
+  }
 
-    //update seconds
-    var nextSecond = seconds - 1;
-    if(nextSecond < 0) {nextSecond = 59;}
-    document.getElementById("seconds-current-top").innerText = seconds.toString();
-    document.getElementById("seconds-current-bottom").innerText = seconds.toString();
-    document.getElementById("seconds-next-top").innerText = (nextSecond).toString();
-    document.getElementById("seconds-next-bottom").innerText = (nextSecond).toString();
+  if(minutes != oldMinutes) {
+  minutesFront.classList.remove("flip-card-front");
+  minutesBehind.classList.remove("flip-card-behind");
+  }
 
-    //set flip
-    setTimeout(
-        function() {
-            secondsFront.classList.add("flip-card-front");
-            secondsBehind.classList.add("flip-card-behind");
-        }, 1);
-
-    // If the count down is finished, loop around
-    if (distance < 0) {
-      clearInterval(secondInterval);
-    }  
-
-}, 999);
-
-//Update minute card every minute
-var minuteInterval = setInterval(function() {
-
-    // Get today's date and time
-    var now = new Date().getTime();
-
-    // Find the distance between now and the count down date
-    var distance = countDownDate - now;
-
-    // Time calculations for days, hours, minutes and seconds
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-    //reset flip
-    minutesFront.classList.remove("flip-card-front");
-    minutesBehind.classList.remove("flip-card-behind");
-
-
-    //update seconds
-    var nextMinute = minutes - 1;
-    if(nextMinute < 0) {nextMinute = 59;}
-    document.getElementById("minutes-current-top").innerText = minutes.toString();
-    document.getElementById("minutes-current-bottom").innerText = minutes.toString();
-    document.getElementById("minutes-next-top").innerText = nextMinute.toString();
-    document.getElementById("minutes-next-bottom").innerText = nextMinute.toString();
-
-    //set flip
-    setTimeout(
-          function() {
-              minutesFront.classList.add("flip-card-front");
-              minutesBehind.classList.add("flip-card-behind");
-          }, 1);
-        
-    // If the count down is finished, loop around
-    if (distance < 0) {
-      clearInterval(minuteInterval);
-    }
-
-  }, 59990);
-
-  //Update hour card every hour
-  var hourInterval = setInterval(function() {
-
-    // Get today's date and time
-    var now = new Date().getTime();
-  
-    // Find the distance between now and the count down date
-    var distance = countDownDate - now;
-  
-    // Time calculations for days, hours, minutes and seconds
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  
-    //reset flip
-    hoursFront.classList.remove("flip-card-front");
-    hoursBehind.classList.remove("flip-card-behind");
-  
-    //update seconds
-    var nextHour = hours - 1;
-    if(nextHour < 0) {nextHour = 59;}
-    document.getElementById("hours-current-top").innerText = hours.toString();
-    document.getElementById("hours-current-bottom").innerText = hours.toString();
-    document.getElementById("hours-next-top").innerText = nextHour.toString();
-    document.getElementById("hours-next-bottom").innerText = nextHour.toString();
-  
-    //set flip
-    setTimeout(
-        function() {
-            hoursFront.classList.add("flip-card-front");
-            hoursBehind.classList.add("flip-card-behind");
-        }, 1);
-  
-    // If the count down is finished, loop around
-    if (distance < 0) {
-      clearInterval(hourInterval);
-    }
-    
-  }, 3599990);
-
-//Update Day Card Every Day
-  var dayInterval = setInterval(function() {
-
-    // Get today's date and time
-    var now = new Date().getTime();
-  
-    // Find the distance between now and the count down date
-    var distance = countDownDate - now;
-  
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  
-    //reset flip
+  if(hours != oldHours) {
     daysFront.classList.remove("flip-card-front");
     daysBehind.classList.remove("flip-card-behind");
+  }
+
+  if(days != oldDays) {
+    hoursFront.classList.remove("flip-card-front");
+    hoursBehind.classList.remove("flip-card-behind");
+  }
   
+
+  var y = setInterval(() => {
   
-    //update seconds
-    var nextDay = days - 1;
-    if(nextDay < 0) {nextDay = 0;}
-    document.getElementById("hours-current-top").innerText = days.toString();
-    document.getElementById("hours-current-bottom").innerText = days.toString();
-    document.getElementById("hours-next-top").innerText = nextDay.toString();
-    document.getElementById("hours-next-bottom").innerText = nextDay.toString();
-  
-    //set flip
-    setTimeout(
-        function() {
-            daysFront.classList.add("flip-card-front");
-            dayssBehind.classList.add("flip-card-behind");
-        }, 1);
-  
-    // If the count down is finished, write some text
-    if (distance < 0) {
-      clearInterval(dayInterval);
+    if(seconds < 0) {seconds = 59;}
+    document.getElementById("seconds-next-top").innerText = ('0' + seconds.toString()).slice(-2);
+    document.getElementById("seconds-next-bottom").innerText = ('0' + seconds.toString()).slice(-2);
+
+    //if(seconds != oldSeconds) {
+      secondsFront.classList.add("flip-card-front");
+      secondsBehind.classList.add("flip-card-behind");
+    //}
+
+    //update minutes
+    if(minutes != oldMinutes) {
+      if(minutes < 0) {minutes = 59;}
+      document.getElementById("minutes-next-top").innerText = ('0' + minutes.toString()).slice(-2);
+      document.getElementById("minutes-next-bottom").innerText = ('0' + minutes.toString()).slice(-2);
+
+      minutesFront.classList.add("flip-card-front");
+      minutesBehind.classList.add("flip-card-behind");
     }
 
-  }, 86399990);
+    //update hours
+    if(hours != oldHours) {
+      if(hours < 0) {hours = 23;}
+      document.getElementById("hours-next-top").innerText = ('0' + hours.toString()).slice(-2);
+      document.getElementById("hours-next-bottom").innerText = ('0' + hours.toString()).slice(-2);
+
+      hoursFront.classList.add("flip-card-front");
+      hoursBehind.classList.add("flip-card-behind");
+    }
+
+    //update days
+    if(days != oldDays) {
+      if(days < 0) {days = 23;}
+      document.getElementById("days-next-top").innerText = ('0' + days.toString()).slice(-2);
+      document.getElementById("days-next-bottom").innerText = ('0' + days.toString()).slice(-2);
+
+      daysFront.classList.add("flip-card-front");
+      daysBehind.classList.add("flip-card-behind");
+    }
+
+    oldDays = days;
+    oldHours = hours;
+    oldMinutes = minutes;
+    oldSeconds = seconds;
+    clearInterval(y);
+  }, 100);
+
+  
+  
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("seconds-next-top").innerText = '00';
+    document.getElementById("seconds-next-bottom").innerText = '00';
+    document.getElementById("seconds-current-top").innerText = '00';
+    document.getElementById("seconds-current-bottom").innerText = '00';
+
+    document.getElementById("minutes-next-top").innerText = '00';
+    document.getElementById("minutes-next-bottom").innerText = '00';
+    document.getElementById("minutes-current-top").innerText = '00';
+    document.getElementById("minutes-current-bottom").innerText = '00';
+
+    document.getElementById("hours-next-top").innerText = '00';
+    document.getElementById("hours-next-bottom").innerText = '00';
+    document.getElementById("hours-current-top").innerText = '00';
+    document.getElementById("hours-current-bottom").innerText = '00';
+
+    document.getElementById("days-next-top").innerText = '00';
+    document.getElementById("days-next-bottom").innerText = '00';
+    document.getElementById("days-current-top").innerText = '00';
+    document.getElementById("days-current-bottom").innerText = '00';
+  }
+}, 1000);

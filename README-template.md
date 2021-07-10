@@ -14,7 +14,6 @@ This is a solution to the [Launch countdown timer challenge on Frontend Mentor](
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 
@@ -58,6 +57,8 @@ I hope to get better at transitions in further projects. I also wish to come bac
 ### Useful resources
 
 - [https://www.w3schools.com/howto/howto_js_countdown.asp](https://www.w3schools.com/howto/howto_js_countdown.asp) - Helpful for coding a countdown timer with js.
+
+- [https://codepen.io/wdmg/pen/XqNPEp](https://codepen.io/wdmg/pen/XqNPEp) - Helped me solve some problems with applying the css transitions in JS.
 
 ## Author
 

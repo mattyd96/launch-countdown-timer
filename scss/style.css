@@ -254,15 +254,15 @@ nav ul li:hover img {
 .flip-card-front {
   -webkit-transform: translateY(100%) rotateX(-180deg);
           transform: translateY(100%) rotateX(-180deg);
-  -webkit-transition-duration: .3s;
-          transition-duration: .3s;
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
 }
 
 .flip-card-behind {
   -webkit-transform: translateY(100%) rotateX(360deg);
           transform: translateY(100%) rotateX(360deg);
-  -webkit-transition-duration: .3s;
-          transition-duration: .3s;
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
 }
 
 @media (max-width: 700px) {
