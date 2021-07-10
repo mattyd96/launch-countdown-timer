@@ -32,15 +32,6 @@ if(oldHours == 0) {oldHours = 23}
 if(oldMinutes == 0) {oldMinutes = 59}
 if(oldSeconds == 0) {oldSeconds = 59}
 
-//document.getElementById("seconds-current-top").innerText = oldSeconds.toString();
-//document.getElementById("seconds-current-bottom").innerText = oldSeconds.toString();
-//document.getElementById("minutes-current-top").innerText = oldMinutes.toString();
-//document.getElementById("minutes-current-bottom").innerText = oldMinutes.toString();
-//document.getElementById("hours-current-top").innerText = oldHours.toString();
-//document.getElementById("hours-current-bottom").innerText = oldHours.toString();
-//document.getElementById("days-current-top").innerText = oldDays.toString();
-//document.getElementById("days-current-bottom").innerText = oldDays.toString();
-
 //------------------------------- Interval functions for seconds, minutes, hours, and days -----------------------//
 
 
@@ -100,11 +91,9 @@ var x = setInterval(function() {
     if(seconds < 0) {seconds = 59;}
     document.getElementById("seconds-next-top").innerText = ('0' + seconds.toString()).slice(-2);
     document.getElementById("seconds-next-bottom").innerText = ('0' + seconds.toString()).slice(-2);
-
-    //if(seconds != oldSeconds) {
-      secondsFront.classList.add("flip-card-front");
-      secondsBehind.classList.add("flip-card-behind");
-    //}
+    
+    secondsFront.classList.add("flip-card-front");
+    secondsBehind.classList.add("flip-card-behind");
 
     //update minutes
     if(minutes != oldMinutes) {

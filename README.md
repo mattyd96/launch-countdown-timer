@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/countdown-with-sass-js-and-css-transitions-MhJPr26_A](https://www.frontendmentor.io/solutions/countdown-with-sass-js-and-css-transitions-MhJPr26_A)
 - Live Site URL: [https://jovial-davinci-7603fe.netlify.app/](https://jovial-davinci-7603fe.netlify.app/)
 
 ## My process
